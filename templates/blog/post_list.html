@@ -1,0 +1,16 @@
+{% extends 'parent/index.html' %}
+
+{% block title %} All Posts List {% endblock %}
+
+{% block content %}
+    {% for i in posts %}
+<div class="article">
+    <p class="date">{{ i.publish|date:"b" }}<span>{{ i.publish|date:"d" }}</span>{{ i.publish|date:"Y" }}</p>
+    <h2><span>{{ i.title }}</span></h2>
+    <p class="subh2">{{ i.description|truncatechars:150 }}</p>
+    <p>Posted by <a href="#">{{ i.author }}</a> &nbsp;|&nbsp; Filed under <a href="#">templates</a>, <a href="#">internet</a> <a href="#" class="com">Comments (3)</a></p>
+    <p class="spec"><a href="{% url 'post_detail' i.id %}" class="rm">Read more &raquo;</a></p>
+</div>
+    {% endfor %}
+{% endblock %}
+
