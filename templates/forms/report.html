@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report Form</title>
+</head>
+<body>
+{% include 'parts/navbar.html' %}
+<h1>Report form</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>Name: </label>
+    {{ form.name }}
+    <br>
+    <label>Email: </label>
+    {{ form.email }}
+    <br>
+    <label>Subject: </label>
+    {{ form.subject }}
+    <br>
+    <label>Text: </label>
+    {{ form.message }}
+    <br>
+    <label></label>
+    <input type="submit" value="Send">
+
+</form>
+{% for message in messages %}
+{{ message }}
+{% endfor %}
+
+</body>
+</html>

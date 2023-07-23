@@ -1,0 +1,9 @@
+
+
+
+
+<ul class="sb_menu">
+    {% for post in l_s %}
+        <li><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a> </li>
+    {% endfor %}
+</ul>

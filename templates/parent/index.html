@@ -10,19 +10,19 @@
 <script type="text/javascript" src="{% static 'js/cuf_run.js' %}"></script>
 </head>
 <body>
+{% include 'parts/navbar.html' %}
 <div class="main">
   <div class="header">
     <div class="header_resize">
       <div class="logo">
-        <h1><a href="#"><img src="{% static 'pix/logo.jpg' %}" width="48" height="50" alt="" /></a><a href="index.html">Corporate<span>Luxe</span> <small>put your slogan here</small></a></h1>
+        <h1><a href="#"><img src="{% static 'pix/logo.jpg' %}" width="48" height="50" alt="" /></a><a href="/">Corporate<span>Luxe</span> <small>put your slogan here</small></a></h1>
       </div>
       <div class="menu_nav">
         <ul>
-          <li class="active"><a href="{% url 'post_list' %}">Home</a></li>
-          <li><a href="#">Support</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li class="active"><a href="{% url 'blog:post_list' %}">Home</a></li>
+          <li><a href="{% url 'blog:post_send' %}">NEW Post!</a></li>
+          <li><a href="{% url 'we:report' %}">Report</a></li>
+          <li><a href="/admin">Admin</a></li>
         </ul>
       </div>
       <div class="clr"></div>

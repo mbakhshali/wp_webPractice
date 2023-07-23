@@ -1,0 +1,9 @@
+<div style="margin: auto; background-color: #5f5f5f;
+padding: 2%; text-align: center; font-weight: bolder; font-size: larger;
+color: white; position: relative">
+{% if user.is_authenticated %}
+    <a href="{% url 'blog:logout' %}">Logout</a>
+{% else %}
+    <a href="/admin">Login</a>
+{% endif %}
+</div>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user profile</title>
+</head>
+<body>
+{% include 'parts/navbar.html' %}
+<h3><a href="{% url 'blog:post_list' %}">back to blog</a> </h3>
+{% for person in author %}
+    <h1>profile for {% if person.first_name %} {{ person.first_name }} {% else %} NO NAME {% endif %}</h1>
+    <table style="border: #5f5f5f; border-style: solid; border-width: thin; width: 50%; margin: auto; margin-top: 1%; padding: 2%">
+    <tr>
+        <td>Name:</td>
+        <td>{{ person.first_name }} {{ person.last_name }}</td>
+    </tr>
+
+    <tr>
+        <td>Email:</td>
+        <td>{{ person.email }}</td>
+    </tr>
+
+    <tr>
+        <td>Number of posts:</td>
+        <td>{{ person.user_posts.count }} (<a href="{% url 'blog:all author posts' person.username%}">SEE ALL</a> )</td>
+    </tr>
+
+
+    </table>
+{% endfor %}
+</body>
+</html>

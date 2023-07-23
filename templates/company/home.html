@@ -1,0 +1,33 @@
+{% load blog_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+</head>
+
+
+{% include 'parts/navbar.html' %}
+
+
+
+<body>
+<h1>Hello dear visitor,</h1>
+This is out homepage
+our ptojects:
+<ul>
+    <li><a href="/admin">Admin</a> </li>
+    <li><a href="{% url 'blog:post_list' %}">blog</a> </li>
+    <li><a href="{% url 'blog:post_send' %}">send a post</a> </li></li>
+    <li><a href="{% url 'we:report' %}">report</a> </li>
+    <li><a href="{% url 'register' %}">register</a> </li>
+</ul>
+<span>
+    <h2>States</h2>
+    <ul>
+        <li>total published posts of the blog: <strong>{% count %}</strong> </li>
+        <li>user with the most posts: <strong>{% user_postz %}</strong>  </li>
+    </ul>
+</span>
+</body>
+</html>

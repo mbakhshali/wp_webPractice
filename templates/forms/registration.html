@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>registration</title>
+</head>
+<body>
+{% include 'parts/navbar.html' %}
+<h1>registration form</h1>
+{% for msg in messages %}
+    <p style="background-color: red; padding: 10px; color: white; font-weight: bold; width: 40%; text-align: center">{{ msg }}</p>
+{% endfor %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+{% if user.is_authenticated  %}
+<input type="submit" value="Register" disabled>
+    {% else %}
+    <input type="submit" value="Register">
+
+{% endif %}
+
+</form>
+</body>
+</html>

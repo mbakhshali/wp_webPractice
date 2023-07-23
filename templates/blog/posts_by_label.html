@@ -1,5 +1,4 @@
 {% extends 'parent/index.html' %}
-{% load blog_tags %}
 
 {% block title %} All Posts List {% endblock %}
 
@@ -8,9 +7,8 @@
 <div class="article">
     <p class="date">{{ i.publish|date:"b" }}<span>{{ i.publish|date:"d" }}</span>{{ i.publish|date:"Y" }}</p>
     <h2><span>{{ i.title }}</span></h2>
-    <p class="subh2">{{ i.description|censore|truncatechars:150 }}</p>
-                       <p>Posted by <a href="{% url 'blog:post_author' i.author %}">{{ i.author }}</a> &nbsp;|&nbsp
- {% if i.category %}Filed under <a href="{% url 'blog:post_label' i.category %}">{{ i.category }}</a>{% else %}Filed under <a href="/label/uncategory ">uncategory</a>{% endif %}</p>
+    <p class="subh2">{{ i.description|truncatechars:150 }}</p>
+    <p>Posted by <a href="#">{{ i.author }}</a> &nbsp;|&nbsp; {% if i.category %}Filed under <a href="{% url 'blog:post_label' i.category %}">{{ i.category }}</a>{% else %}Filed under <a href="{% url 'blog:post_label' %}uncategory">uncategory</a>{% endif %}</p>
     <p class="spec"><a href="{% url 'blog:post_detail' i.id %}" class="rm">Read more &raquo;</a></p>
 </div>
     {% endfor %}

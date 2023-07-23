@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Send a new post</title>
+</head>
+<body>
+{% include 'parts/navbar.html' %}
+<h1>S E N D  A  P O S T !</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>title: </label>
+    {{ form.pTitle }}
+    <br>
+    <label>Slug: </label>
+    {{ form.pSlug }}
+    <br>
+    <label>Text: </label>
+    {{ form.pTXT }}
+    <br>
+<br>
+    <label>You logged in as (<strong>{{ user }} (id: {{ user.id }})</strong>) -
+        {% if user.is_authenticated %}
+        (<a href="{% url 'blog:logout'%}">Logout</a> )
+    {% endif %}
+    </label>
+<br>
+    <br>
+
+    {% if user.is_authenticated %}
+        <input type="submit" value="Send">
+    {% else %}
+        <input type="submit" value="Send" disabled>
+    {% endif %}
+
+
+</form>
+{% for message in messages %}
+{{ message }}
+{% endfor %}
+
+</body>
+</html>

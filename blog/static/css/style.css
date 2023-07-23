@@ -64,12 +64,12 @@ h2 {
 p {
 	margin:8px 0;
 	padding:0 0 8px 0;
-	font:normal 12px/1.8em Arial, Helvetica, sans-serif;
+	font: 14px Arial, Helvetica, sans-serif;
 }
 p.subh2 {
 	margin:0;
 	padding:0;
-	font:normal 11px/1.2em Arial, Helvetica, sans-serif;
+	font: 14px Arial, Helvetica, sans-serif;
 }
 a {
 	color:#49b6e9;

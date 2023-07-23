@@ -1,4 +1,5 @@
 {% load static %}
+{% load blog_tags %}
 <div class="sidebar">
 
     <div class="searchform">
@@ -16,11 +17,14 @@
           <h2 class="star"><span>Sidebar</span> Menu</h2>
           <div class="clr"></div>
 
-          <ul class="sb_menu">
-          {% for i in posts_raw %}
-            <li><a href="{% url 'post_detail' i.id %}">{{ i.title }}</a></li>
-          {% endfor %}
-          </ul>
+{#          <ul class="sb_menu">#}
+{#          {% for i in posts_raw %}#}
+{#            <li><a href="{% url 'blog:post_detail' i.id %}">{{ i.title }}</a></li>#}
+{#          {% endfor %}#}
+{#          </ul>#}
+
+        {% sidebar_latest %}
+
 
         </div>
 
