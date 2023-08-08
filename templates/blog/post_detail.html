@@ -7,4 +7,6 @@
 <p>{{ post.description | linebreaks}}</p>
 <hr>
 {{ post.publish }}
+<hr>
+<a href="{% url 'blog:SavePDF' post.id%}">save pdf</a>
 {% endblock %}

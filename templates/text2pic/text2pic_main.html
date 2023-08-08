@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text2Pic</title>
+</head>
+<body>
+<h1>Text 2 Pic</h1>
+<p>Type something, get it as a picture file in .jpg</p>
+<form method="post">
+    {% csrf_token %}
+    <label>Type something: </label>
+    {{ form.txt }}
+    {{ form.fonts }}
+    {{ form.colors }}
+    <br><br>
+<input type="submit" value="Generate!">
+</form>
+{% if not img_url == "" %}
+    <img src="{{ img_url }}" alt="">
+{% endif %} 
+
+
+</body>
+</html>

@@ -10,5 +10,6 @@ urlpatterns = [
     path('label/<str:label>', views.label, name='post_label'),
     path('send/', views.send, name='post_send'),
     path('logout/', views.logout_user, name='logout'),
-    path('posts_by/<str:username>', views.author_posts, name='all author posts')
+    path('posts_by/<str:username>', views.author_posts, name='all author posts'),
+    path('post/<int:id>/download_PDF', views.postPDF, name = 'SavePDF')
 ]

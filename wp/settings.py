@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'we.apps.WeConfig',
     'users',
+    'text2pic',
 ]
 
 MIDDLEWARE = [

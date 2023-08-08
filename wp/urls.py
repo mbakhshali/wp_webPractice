@@ -22,4 +22,5 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('', include('we.urls')),
     path('', include('users.urls')),
+    path('text2pic/', include('text2pic.urls')),
 ]

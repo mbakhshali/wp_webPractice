@@ -6,6 +6,10 @@ from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.shortcuts import HttpResponseRedirect
+import io
+from django.http import FileResponse
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4
 
 # Create your views here.
 
@@ -73,3 +77,16 @@ def send(request):
 def logout_user(request):
     logout(request)
     return redirect('blog:post_list')
+
+
+def postPDF(request, id):
+    post = get_object_or_404(Post, id=id)
+    buffer = io.BytesIO()
+    pdf = canvas.Canvas(buffer, pagesize=A4)
+    post.description = post.description.replace('\n', '<br/>')
+    pdf.drawString(100, 750, post.description)
+    pdf.showPage()
+    pdf.save()
+    buffer.seek(0)
+
+    return FileResponse(buffer, as_attachment=True, filename=post.title+'.pdf')
